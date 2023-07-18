@@ -8,9 +8,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(Post $post){
-        $test = $post->orderBy('updated_at', 'DESC')->limit(2)->toSql(); //確認用に追加
-        dd($test);
         // withを使うことでviewに変数を渡す
-        return view('posts.index')->with(['posts' => $post->getByLimit()]);
+        return view('posts.index')->with(['posts' => $post->getPaginateBylimit()]);
     }
 }
