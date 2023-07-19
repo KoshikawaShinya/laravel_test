@@ -9,6 +9,7 @@
     <body>
         <h1>Blog Name</h1>
         <div class='posts'>
+            <a href='/posts/create'>create</a>
             
             <!-- PostControllerから渡された$postsを使用 -->
             @foreach ($posts as $post)
