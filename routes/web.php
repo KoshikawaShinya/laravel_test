@@ -13,6 +13,7 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [PostController::class, 'index']);
 
 // '{post}の下に書くとshowメソッドが呼び出されてしまう'
@@ -20,7 +21,7 @@ Route::get('/posts/create', [PostController::class ,'create']);
 
 // '/posts/{対象データのID}'にGetリクエストが来たら、PostControllerのshowメソッドを実行する
 Route::get('/posts/{post}', [PostController::class ,'show']);
-
+Route::post('/posts', [PostController::class, 'store']);
 /*
 Route::get('/', function () {
     return view('posts/index');
