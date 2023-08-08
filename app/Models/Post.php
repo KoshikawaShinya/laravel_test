@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 // クラス名をDB名の単数形にすれば自動的にそのデータベースにつなぐ
 // 明示したいなら&tableにDB名を代入すればよい
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
     protected $fillable = [
     'title',
     'body',
