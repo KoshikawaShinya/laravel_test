@@ -24,11 +24,13 @@ class PostController extends Controller
         return view('posts.show')->with(['post' => $post]);
     }
     
+    // 登録画面
     public function create()
     {
         return view('posts.create');
     }
     
+    // 登録操作
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
@@ -36,4 +38,18 @@ class PostController extends Controller
         return redirect('/posts/' . $post->id);
     }
     
+    // 編集画面
+    public function edit(Post $post){
+        return view('posts.edit')->with(['post' => $post]);
+        
+    }
+    
+    // 編集操作
+    public function update(PostRequest $request, Post $post)
+    {
+        $input_post = $request['post'];
+        $post->fill($input_post)->save();
+
+        return redirect('/posts/' . $post->id);
+    }
 }
